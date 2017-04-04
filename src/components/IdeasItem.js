@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { updateIdea } from '../actions';
+import { updateIdea, deleteIdea } from '../actions';
 
 
 class IdeasItem extends Component {
@@ -23,9 +23,10 @@ class IdeasItem extends Component {
           <input type="text" className="idea-title" defaultValue={idea.title} ref="title" />
           <input type="text" className="idea-body" defaultValue={idea.body} ref="body" />
         </form>
+        <button className="destroy" onClick={() => this.props.deleteIdea(idea.id)} />
       </li>
     )
   }
 }
 
-export default connect(null, { updateIdea })(IdeasItem);
+export default connect(null, { updateIdea, deleteIdea })(IdeasItem);

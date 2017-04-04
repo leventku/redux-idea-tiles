@@ -1,6 +1,7 @@
 export const FETCH_IDEAS = 'FETCH_IDEAS';
 export const UPDATE_IDEA = 'UPDATE_IDEA';
 export const CREATE_IDEA = 'CREATE_IDEA';
+export const DELETE_IDEA = 'DELETE_IDEA';
 
 let nextId = 0;
 
@@ -37,8 +38,7 @@ export function updateIdea(obj) {
 
 export function addIdea() {
   // GET idea/new
-  const newId = fetchIdeas().payload.length + 1;
-  console.log('GET idea/new: ', newId);
+  console.log('GET idea/new');
 
   return {
     type: CREATE_IDEA,
@@ -46,5 +46,15 @@ export function addIdea() {
       id: nextId++,
       created_date: new Date()
     }
+  }
+}
+
+export function deleteIdea(id) {
+  // POST idea/delete
+  console.log('POST idea/delete: ', id);
+  
+  return {
+    type: DELETE_IDEA,
+    payload: id
   }
 }
