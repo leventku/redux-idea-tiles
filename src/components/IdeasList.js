@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import IdeasItem from './IdeasItem';
 
-import { fetchIdeas } from '../actions';
+import { fetchIdeas, addIdea } from '../actions';
 
 class IdeasList extends Component {
   componentWillMount () {
@@ -21,9 +21,12 @@ class IdeasList extends Component {
   
   render() {
     return (
-      <ul className="ideas-list">
-        { this.renderIdeas() }
-      </ul>
+      <div>
+        <ul className="ideas-list">
+          { this.renderIdeas() }
+        </ul>
+        <button onClick={this.props.addIdea}>Add idea</button>
+      </div>
     )
   }
 }
@@ -34,4 +37,4 @@ const mapStateToProps = (appState) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchIdeas })(IdeasList);
+export default connect(mapStateToProps, { fetchIdeas, addIdea })(IdeasList);

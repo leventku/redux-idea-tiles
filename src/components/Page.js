@@ -6,7 +6,6 @@ export default class Page extends Component {
     return (
       <div>
         <IdeasList />
-        <button>Add idea</button>
       </div>
     );
   }
