@@ -1,4 +1,5 @@
 export const FETCH_IDEAS = 'FETCH_IDEAS';
+export const UPDATE_IDEA = 'UPDATE_IDEA';
 
 
 export function fetchIdeas() {
@@ -22,3 +23,12 @@ export function fetchIdeas() {
     payload: ideas
   }
 };
+
+export function updateIdea(obj) {
+  // POST idea/update
+  console.log('POST idea/update: ', obj);
+
+  return {
+    type: UPDATE_IDEA
+  }
+}
