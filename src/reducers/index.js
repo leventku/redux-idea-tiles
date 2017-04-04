@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
+import ideasReducer from './ideasReducer';
+
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  ideas: ideasReducer
 });
 
 export default rootReducer;
