@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 import { updateIdea, deleteIdea } from '../actions';
 
 const maxLength = 140;
 
 class IdeasItem extends Component {
+  componentDidMount() {
+    this.refs.title.focus();
+  }
+
   handleFormBlur(id) {
     this.props.updateIdea({
       id,
@@ -13,18 +18,26 @@ class IdeasItem extends Component {
       body: this.refs.body.value,
     });
   }
-  
+
   render() {
-    const idea = this.props.idea;
+    const { id, created_date, title, body } = this.props.idea;
+    const formattedDate = moment(created_date).format('ll')
+
     return (
-      <li className="idea-item" key={idea.id}>
-        <span className="idea-id">{idea.id}</span>
-        <span className="idea-created-date">{idea.created_date.toString()}</span>
-        <form onBlur={ this.handleFormBlur.bind(this, idea.id) }>
-          <input type="text" className="idea-title" defaultValue={idea.title} maxLength={maxLength} ref="title" />
-          <input type="text" className="idea-body" defaultValue={idea.body} maxLength={maxLength} ref="body" />
+      <li className="ideas-item" key={id}>
+        <span className="idea-id">id: {id}</span>
+        <span className="idea-created-date">{formattedDate}</span>
+        <form onBlur={this.handleFormBlur.bind(this, id)}>
+          <label>
+            Title:
+            <input type="text" className="idea-title" defaultValue={title} maxLength={maxLength} ref="title" />
+          </label>
+          
+          <label>
+            Body:
+            <input type="text" className="idea-body" defaultValue={body} maxLength={maxLength} ref="body" /></label>
         </form>
-        <button className="destroy" onClick={() => this.props.deleteIdea(idea.id)} />
+        <button className="destroy" onClick={() => this.props.deleteIdea(id)} />
       </li>
     )
   }

@@ -22,10 +22,10 @@ class IdeasList extends Component {
   render() {
     return (
       <div>
+        <button className="btn-add-idea" onClick={this.props.addIdea}>Add idea</button>
         <ul className="ideas-list">
           { this.renderIdeas() }
         </ul>
-        <button onClick={this.props.addIdea}>Add idea</button>
       </div>
     )
   }

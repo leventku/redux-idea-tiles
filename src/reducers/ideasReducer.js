@@ -9,7 +9,6 @@ export default (state = INITIAL_STATE, action) => {
     case CREATE_IDEA:
       return {...state, all: state.all.concat(Object.assign({title: '', body: ''}, action.payload))}
     case DELETE_IDEA:
-     console.log('delete!!!')
       return {...state, all: state.all.filter(idea => idea.id != action.payload)}
 
     default:
