@@ -16,8 +16,8 @@ export default class IdeaBodyInput extends Component {
   }
 
   render() {
-    console.log(this.state.charCount)
     const remaininChars = this.state.maxLength - this.state.charCount;
+    
     return (
       <div className="idea-body-input">
         <input type="text" 
