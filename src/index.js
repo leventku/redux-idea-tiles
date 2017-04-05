@@ -5,6 +5,8 @@ import { createStore, applyMiddleware } from 'redux';
 import { apiMiddleware } from 'redux-api-middleware';
 import thunk from 'redux-thunk';
 
+import './style/style.css';
+
 import Page from './components/Page';
 import reducers from './reducers';
 

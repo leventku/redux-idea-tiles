@@ -7,6 +7,20 @@ body {
     margin: 20px auto;
 }
 
+.btn-add-idea {
+    font-size: 18px;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    margin-left: calc(50% - 75px);
+}
+
+.ideas-list {
+    padding: 0;
+    margin: 20px;
+    overflow: hidden;
+}
+
 .idea-title, .idea-body {
     border: none;
     outline: none;
@@ -14,12 +28,6 @@ body {
 
 .idea-title:focus, .idea-body:focus {
     border: 1px solid lightgray;
-}
-
-.ideas-list {
-    padding: 0;
-    margin: 20px;
-    overflow: hidden;
 }
 
 .ideas-item .destroy {
@@ -57,12 +65,4 @@ body {
 
 .idea-id, .idea-created-date {
     display: block;
-}
-
-.btn-add-idea {
-    font-size: 18px;
-    width: 150px;
-    height: 50px;
-    border-radius: 5px;
-    margin-left: calc(50% - 75px);
 }
