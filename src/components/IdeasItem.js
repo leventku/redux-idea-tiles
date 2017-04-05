@@ -8,7 +8,9 @@ const maxLength = 140;
 
 class IdeasItem extends Component {
   componentDidMount() {
-    this.refs.title.focus();
+    if(!this.refs.title.value.length){
+      this.refs.title.focus();
+    }
   }
 
   handleFormBlur(id) {
