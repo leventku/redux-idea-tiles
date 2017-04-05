@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
@@ -42,7 +42,6 @@ class IdeasItem extends Component {
               text={body}
               ref="body"
               maxLength={maxLength}
-              onSave={(text) => this.handleSave(todo.id, text)}
             />
           </label>
         </form>
@@ -51,5 +50,16 @@ class IdeasItem extends Component {
     )
   }
 }
+
+IdeasItem.propTypes = {
+  idea: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    created_date: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+  }),
+  updateIdea: PropTypes.func.isRequired,
+  deleteIdea: PropTypes.func.isRequired,
+};
 
 export default connect(null, { updateIdea, deleteIdea })(IdeasItem);

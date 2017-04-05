@@ -1,12 +1,12 @@
 [{
   "id": 1,
-  "created_date": "Wed Apr 04 2017 02:35:02 GMT+0100 (BST)",
+  "created_date": "2017-04-05T10:48:37.107Z",
   "title": "first idea",
   "body": "body text of the first idea"
 },
 {
   "id": 2,
-  "created_date": "Wed Apr 05 2017 02:35:02 GMT+0100 (BST)",
+  "created_date": "2017-05-05T10:48:37.107Z",
   "title": "second idea",
   "body": "body text of the second idea"
 }]

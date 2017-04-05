@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default class IdeaBodyInput extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ export default class IdeaBodyInput extends Component {
 
   render() {
     const remaininChars = this.state.maxLength - this.state.charCount;
-    
+
     return (
       <div className="idea-body-input">
         <input type="text" 
@@ -31,4 +31,9 @@ export default class IdeaBodyInput extends Component {
       </div>
     )
   }
+}
+
+IdeaBodyInput.propTypes = {
+  text: PropTypes.string.isRequired,
+  maxLength: PropTypes.number.isRequired
 }

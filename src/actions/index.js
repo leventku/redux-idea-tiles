@@ -43,11 +43,12 @@ export function addIdea() {
   // GET idea/new
   console.log('GET idea/new');
 
+  // mocking server response here
   return {
     type: CREATE_IDEA,
     payload: {
       id: nextId++,
-      created_date: new Date()
+      created_date: new Date().toISOString()
     }
   }
 }
