@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 
 import { updateIdea, deleteIdea } from '../actions';
+import IdeaBodyInput from './IdeaBodyInput';
 
 const maxLength = 140;
 
@@ -17,7 +18,7 @@ class IdeasItem extends Component {
     this.props.updateIdea({
       id,
       title: this.refs.title.value,
-      body: this.refs.body.value,
+      body: this.refs.body.refs.input.value,
     });
   }
 
@@ -37,7 +38,13 @@ class IdeasItem extends Component {
           
           <label>
             Body:
-            <input type="text" className="idea-body" defaultValue={body} maxLength={maxLength} ref="body" /></label>
+            <IdeaBodyInput
+              text={body}
+              ref="body"
+              maxLength={maxLength}
+              onSave={(text) => this.handleSave(todo.id, text)}
+            />
+          </label>
         </form>
         <button className="destroy" onClick={() => this.props.deleteIdea(id)} />
       </li>
