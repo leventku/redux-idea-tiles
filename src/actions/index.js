@@ -1,8 +1,5 @@
 import { CALL_API } from 'redux-api-middleware';
-
-export const REQUEST_IDEAS = '/ideas/REQUEST';
-export const RECEIVE_IDEAS = '/ideas/RECEIVE';
-export const FAILURE_IDEAS = '/ideas/FAILURE';
+import * as types from './types';
 
 const serverPath = 'http://localhost:3000';
 
@@ -11,14 +8,10 @@ export function fetchIdeas() {
     [CALL_API]: {
       endpoint: `${serverPath}/ideas`,
       method: 'GET',
-      types: [REQUEST_IDEAS, RECEIVE_IDEAS, FAILURE_IDEAS]
+      types: [types.REQUEST_IDEAS, types.RECEIVE_IDEAS, types.FAILURE_IDEAS]
     }
   }
 }
-
-export const REQUEST_UPDATE_IDEA = 'update/idea/REQUEST';
-export const RECEIVE_UPDATE_IDEA = 'update/idea/RECEIVE';
-export const FAILURE_UPDATE_IDEA = 'update/idea/FAILURE';
 
 export function updateIdea(obj) {
   return {
@@ -27,28 +20,20 @@ export function updateIdea(obj) {
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
       body: JSON.stringify(obj),
-      types: [REQUEST_UPDATE_IDEA, RECEIVE_UPDATE_IDEA, FAILURE_UPDATE_IDEA]
+      types: [types.REQUEST_UPDATE_IDEA, types.RECEIVE_UPDATE_IDEA, types.FAILURE_UPDATE_IDEA]
     }
   }
 }
-
-export const REQUEST_NEW_IDEA = 'new/idea/REQUEST';
-export const RECEIVE_NEW_IDEA = 'new/idea/RECEIVE';
-export const FAILURE_NEW_IDEA = 'new/idea/FAILURE';
 
 export function addIdea() {
   return {
     [CALL_API]: {
       endpoint: `${serverPath}/ideas/new`,
       method: 'GET',
-      types: [REQUEST_NEW_IDEA, RECEIVE_NEW_IDEA, FAILURE_NEW_IDEA]
+      types: [types.REQUEST_NEW_IDEA, types.RECEIVE_NEW_IDEA, types.FAILURE_NEW_IDEA]
     }
   }
 }
-
-export const REQUEST_DELETE_IDEA = 'delete/idea/REQUEST';
-export const RECEIVE_DELETE_IDEA = 'delete/idea/RECEIVE';
-export const FAILURE_DELETE_IDEA = 'delete/idea/FAILURE';
 
 export function deleteIdea(id) {
   return {
@@ -57,7 +42,7 @@ export function deleteIdea(id) {
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
       body: JSON.stringify({id: id}),
-      types: [REQUEST_DELETE_IDEA, RECEIVE_DELETE_IDEA, FAILURE_DELETE_IDEA]
+      types: [types.REQUEST_DELETE_IDEA, types.RECEIVE_DELETE_IDEA, types.FAILURE_DELETE_IDEA]
     }
   }
 }

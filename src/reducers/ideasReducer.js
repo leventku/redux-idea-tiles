@@ -10,7 +10,7 @@ import {
 
   RECEIVE_DELETE_IDEA,
   FAILURE_DELETE_IDEA,
-} from '../actions';
+} from '../actions/types';
 
 const INITIAL_STATE = { all: [] };
 
