@@ -1,6 +1,6 @@
 module.exports = {
   entry: [
-    './src/index.js'
+  './src/index.js'
   ],
   output: {
     path: __dirname,
@@ -14,10 +14,11 @@ module.exports = {
       query: {
         presets: ['react', 'es2015', 'stage-1']
       }
-    },
-    [
-            { test: /\.css$/, exclude: /node_modules/,loader: "style-loader!css-loader" }
-        ]]
+    },{
+      test: /\.css$/,
+      exclude: /node_modules/,
+      loader: "style-loader!css-loader"
+    }]
   },
   resolve: {
     extensions: ['', '.js', '.jsx']

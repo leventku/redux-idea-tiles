@@ -17,6 +17,7 @@ body {
     height: 50px;
     border-radius: 5px;
     margin-left: calc(50% - 75px);
+    outline: none;
 }
 
 .ideas-list {
@@ -45,6 +46,7 @@ body {
     padding: 0;
     border: 0;
     background: none;
+    outline: none;
 }
 
 .ideas-item .destroy:after {

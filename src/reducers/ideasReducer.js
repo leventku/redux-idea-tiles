@@ -5,8 +5,12 @@ import {
   RECEIVE_UPDATE_IDEA,
   FAILURE_UPDATE_IDEA,
 
-  CREATE_IDEA,
-  DELETE_IDEA } from '../actions';
+  RECEIVE_NEW_IDEA,
+  FAILURE_NEW_IDEA,
+
+  RECEIVE_DELETE_IDEA,
+  FAILURE_DELETE_IDEA,
+} from '../actions';
 
 const INITIAL_STATE = { all: [] };
 
@@ -30,11 +34,15 @@ export default (state = INITIAL_STATE, action) => {
     case FAILURE_UPDATE_IDEA:
       return state;
 
-
-    case CREATE_IDEA:
-      return {...state, all: state.all.concat(Object.assign({title: '', body: ''}, action.payload))}
-    case DELETE_IDEA:
-      return {...state, all: state.all.filter(idea => idea.id != action.payload)}
+    case RECEIVE_NEW_IDEA:
+      return {...state, all: state.all.concat(action.payload)}
+    case FAILURE_NEW_IDEA:
+      return state;
+      
+    case RECEIVE_DELETE_IDEA:
+      return {...state, all: state.all.filter(idea => idea.id != action.payload.id)}
+    case FAILURE_DELETE_IDEA:
+      return state;
 
     default:
       return state
