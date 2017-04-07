@@ -2,11 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import IdeasItem from './IdeasItem';
-
 import { fetchIdeas, addIdea } from '../actions';
 
-class IdeasList extends Component {
-  componentWillMount () {
+export class IdeasList extends Component {
+  componentDidMount () {
     this.props.fetchIdeas();
   }
 
@@ -20,7 +19,7 @@ class IdeasList extends Component {
   
   render() {
     return (
-      <div>
+      <div className="ideas-list-wrapper">
         <button className="btn-add-idea" onClick={this.props.addIdea}>Add idea</button>
         <ul className="ideas-list">
           { this.renderIdeas() }
