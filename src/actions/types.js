@@ -1,6 +1,6 @@
-export const REQUEST_IDEAS = '/ideas/REQUEST';
-export const RECEIVE_IDEAS = '/ideas/RECEIVE';
-export const FAILURE_IDEAS = '/ideas/FAILURE';
+export const REQUEST_FETCH_IDEAS = 'fetch/ideas/REQUEST';
+export const RECEIVE_FETCH_IDEAS = 'fetch/ideas/RECEIVE';
+export const FAILURE_FETCH_IDEAS = 'fetch/ideas/FAILURE';
 
 export const REQUEST_UPDATE_IDEA = 'update/idea/REQUEST';
 export const RECEIVE_UPDATE_IDEA = 'update/idea/RECEIVE';

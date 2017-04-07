@@ -1,6 +1,6 @@
 import { 
-  RECEIVE_IDEAS,
-  FAILURE_IDEAS,
+  RECEIVE_FETCH_IDEAS,
+  FAILURE_FETCH_IDEAS,
 
   RECEIVE_UPDATE_IDEA,
   FAILURE_UPDATE_IDEA,
@@ -16,9 +16,9 @@ const INITIAL_STATE = { all: [] };
 
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
-    case RECEIVE_IDEAS:
+    case RECEIVE_FETCH_IDEAS:
       return {...state, all: action.payload}
-    case FAILURE_IDEAS:
+    case FAILURE_FETCH_IDEAS:
       return state;
 
     case RECEIVE_UPDATE_IDEA:
@@ -40,7 +40,7 @@ export default (state = INITIAL_STATE, action) => {
       return state;
       
     case RECEIVE_DELETE_IDEA:
-      return {...state, all: state.all.filter(idea => idea.id != action.payload.id)}
+      return {...state, all: state.all.filter(idea => idea.id != action.payload.deletedId)}
     case FAILURE_DELETE_IDEA:
       return state;
 

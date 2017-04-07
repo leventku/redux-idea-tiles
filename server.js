@@ -44,13 +44,16 @@ app.get('/ideas/new', function(req, res) {
 
 app.post('/idea/update', function(req, res) {
   const updatedId = req.body.id;
+  let updatedEntity;
+
   ideas = ideas.map(idea => {
     if (updatedId == idea.id) {
+      updatedEntity = idea;
       return Object.assign(idea, req.body);
     }
     return idea;
   });
-  res.json(req.body);
+  res.json(updatedEntity);
 });
 
 app.post('/idea/delete', function(req, res) {
@@ -58,7 +61,7 @@ app.post('/idea/delete', function(req, res) {
   ideas = ideas.filter(({id}) => {
     return id != deletedId;
   });
-  res.json(req.body);
+  res.send({ deletedId });
 });
 
 app.listen(3000);

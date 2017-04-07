@@ -8,7 +8,7 @@ export function fetchIdeas() {
     [CALL_API]: {
       endpoint: `${serverPath}/ideas`,
       method: 'GET',
-      types: [types.REQUEST_IDEAS, types.RECEIVE_IDEAS, types.FAILURE_IDEAS]
+      types: [types.REQUEST_FETCH_IDEAS, types.RECEIVE_FETCH_IDEAS, types.FAILURE_FETCH_IDEAS]
     }
   }
 }
@@ -41,7 +41,7 @@ export function deleteIdea(id) {
       endpoint: `${serverPath}/idea/delete`,
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
-      body: JSON.stringify({id: id}),
+      body: JSON.stringify({ id }),
       types: [types.REQUEST_DELETE_IDEA, types.RECEIVE_DELETE_IDEA, types.FAILURE_DELETE_IDEA]
     }
   }
