@@ -4,7 +4,7 @@ import { apiMiddleware } from 'redux-api-middleware';
 import * as actions from '../../src/actions'
 import * as types from '../../src/actions/types'
 import nock from 'nock'
-import expect from 'expect' // You can use any testing library
+// import expect from 'expect' // You can use any testing library
 
 const middlewares = [apiMiddleware, thunk]
 const mockStore = configureMockStore(middlewares)
