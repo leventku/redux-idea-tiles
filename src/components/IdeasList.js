@@ -5,7 +5,7 @@ import IdeasItem from './IdeasItem';
 import { fetchIdeas, addIdea } from '../actions';
 
 export class IdeasList extends Component {
-  componentDidMount () {
+  componentWillMount () {
     this.props.fetchIdeas();
   }
 
